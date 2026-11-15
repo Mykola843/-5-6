@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savor — Ресторан швидкого харчування</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            padding-top: 72px;
+        }
+        .cursive-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        .navbar {
+            background: #222831 !important;
+        }
+        .hero-section {
+            background:
+                linear-gradient(90deg, rgba(0,0,0,.85), rgba(0,0,0,.3)),
+                url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=85')
+                center/cover;
+        }
+        .hero-copy {
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding-right: 10%;
+        }
+        .hero-copy p {
+            max-width: 650px;
+        }
+        .btn-warning {
+            background: #ffbe33;
+            border-color: #ffbe33;
+        }
+        .offer-card {
+            background: #222831;
+            color: white;
+            border-radius: 16px;
+        }
+        .offer-card img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border: 5px solid #ffbe33;
+            border-radius: 50%;
+        }
+        .food-card {
+            border: 0;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #222831;
+            color: white;
+            height: 100%;
+        }
+        .food-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            background: #f1f2f3;
+        }
+        .food-card .card-body {
+            padding: 22px;
+        }
+        .food-card .card-text {
+            min-height: 72px;
+        }
+        .food-price {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .about-section {
+            background: #222831;
+            color: white;
+        }
+        .about-section img {
+            width: 100%;
+            max-height: 430px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        .filter-btn.active {
+            background: #222831;
+            color: white;
+        }
+        #backToTopBtn {
+            z-index: 1050;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Навігація -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fs-2 fw-bold cursive-font"
+           href="#home-section">Savor</a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-label="Відкрити меню">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto gap-lg-3">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home-section">Головна</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#menu-section">Меню</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about-section">Про нас</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#book-table-section">Бронювання</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#faq-section">Запитання</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#footer-section">Контакти</a>
+                </li>
+            </ul>
+
+            <div class="d-flex gap-2 ms-lg-4">
+                <button class="btn btn-outline-light rounded-pill"
+                        data-bs-toggle="modal"
+                        data-bs-target="#signInModal">
+                    Увійти
+                </button>
+                <button class="btn btn-warning rounded-pill"
+                        data-bs-toggle="modal"
+                        data-bs-target="#signUpModal">
+                    Реєстрація
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Головний слайдер -->
+<section id="home-section" class="hero-section text-white">
+    <div id="heroCarousel" class="carousel slide"
+         data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel"
+                    data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Слайд 1"></button>
+            <button type="button" data-bs-target="#heroCarousel"
+                    data-bs-slide-to="1" aria-label="Слайд 2"></button>
+            <button type="button" data-bs-target="#heroCarousel"
+                    data-bs-slide-to="2" aria-label="Слайд 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container hero-copy">
+                    <h1 class="display-3 cursive-font fw-bold">
+                        Ресторан швидкого харчування
+                    </h1>
+                    <p class="lead">
+                        Відкрийте для себе світ смачних страв!
+                        Соковиті бургери, ароматна піца та
+                        незабутні враження чекають на вас.
+                    </p>
+                    <a href="#menu-section"
+                       class="btn btn-warning rounded-pill px-5 py-2">
+                        Замовити зараз
+                    </a>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="container hero-copy">
+                    <h1 class="display-3 cursive-font fw-bold">
+                        Свіже та смачне
+                    </h1>
+                    <p class="lead">
+                        Свіжоприготовані бургери, піца та картопля фрі,
+                        які зроблять ваш день кращим.
+                    </p>
+                    <a href="#menu-section"
+                       class="btn btn-warning rounded-pill px-5 py-2">
+                        Переглянути меню
+                    </a>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="container hero-copy">
+                    <h1 class="display-3 cursive-font fw-bold">
+                        Відчуйте різницю
+                    </h1>
+                    <p class="lead">
+                        Смачна їжа, затишна атмосфера та
+                        чудовий настрій кожного дня!
+                    </p>
+                    <a href="#book-table-section"
+                       class="btn btn-warning rounded-pill px-5 py-2">
+                        Забронювати столик
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button"
+                data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Назад</span>
+        </button>
+
+        <button class="carousel-control-next" type="button"
+                data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Далі</span>
+        </button>
+    </div>
+</section>
+
+<!-- Акції -->
+<section class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="offer-card p-4 d-flex align-items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80"
+                     alt="Бургер">
+                <div>
+                    <h3 class="cursive-font">Смачний четвер</h3>
+                    <h2>Знижка 20%</h2>
+                    <a href="#menu-section"
+                       class="btn btn-warning rounded-pill">
+                        Замовити
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="offer-card p-4 d-flex align-items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80"
+                     alt="Піца">
+                <div>
+                    <h3 class="cursive-font">День піци</h3>
+                    <h2>Знижка 15%</h2>
+                    <a href="#menu-section"
+                       class="btn btn-warning rounded-pill">
+                        Замовити
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Меню -->
+<section id="menu-section" class="container py-5">
+    <h2 class="text-center display-4 cursive-font fw-bold mb-4">
+        Наше меню
+    </h2>
+
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-5"
+         id="foodFilters">
+        <button class="btn btn-outline-dark rounded-pill filter-btn active"
+                data-category="all">Усі страви</button>
+        <button class="btn btn-outline-dark rounded-pill filter-btn"
+                data-category="burger">Бургери</button>
+        <button class="btn btn-outline-dark rounded-pill filter-btn"
+                data-category="pizza">Піца</button>
+        <button class="btn btn-outline-dark rounded-pill filter-btn"
+                data-category="pasta">Паста</button>
+        <button class="btn btn-outline-dark rounded-pill filter-btn"
+                data-category="fries">Картопля фрі</button>
+    </div>
+
+    <div class="row g-4" id="all-cards"></div>
+
+    <div class="text-center mt-5">
+        <a href="#book-table-section"
+           class="btn btn-warning rounded-pill px-5 py-2">
+            Забронювати столик
+        </a>
+    </div>
+</section>
+
+<!-- Про нас -->
+<section id="about-section" class="about-section py-5">
+    <div class="container py-4">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80"
+                     alt="Інтер'єр ресторану">
+            </div>
+
+            <div class="col-lg-6">
+                <h2 class="display-4 cursive-font fw-bold">Про нас</h2>
+                <p>
+                    Ласкаво просимо до Savor — місця, де смачна
+                    їжа поєднується із затишною атмосферою.
+                </p>
+                <p>
+                    Ми пропонуємо широкий вибір бургерів, піци,
+                    пасти та інших популярних страв.
+                    Наша команда прагне зробити кожне
+                    відвідування незабутнім.
+                </p>
+                <a href="#menu-section"
+                   class="btn btn-warning rounded-pill px-4">
+                    Наше меню
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Бронювання -->
+<section id="book-table-section" class="container py-5">
+    <h2 class="display-4 cursive-font fw-bold mb-4">
+        Забронювати столик
+    </h2>
+
+    <div class="row g-5">
+        <div class="col-lg-6">
+            <form id="bookingForm">
+                <input type="text" class="form-control mb-3"
+                       placeholder="Ваше ім'я" required>
+
+                <input type="tel" class="form-control mb-3"
+                       placeholder="Номер телефону" required>
+
+                <input type="email" class="form-control mb-3"
+                       placeholder="Електронна пошта">
+
+                <select class="form-select mb-3" required>
+                    <option value="">Кількість гостей</option>
+                    <option value="1">1 особа</option>
+                    <option value="2">2 особи</option>
+                    <option value="3">3 особи</option>
+                    <option value="4">4 особи</option>
+                    <option value="5">5 осіб</option>
+                    <option value="6">6 осіб</option>
+                </select>
+
+                <input type="date" id="date"
+                       class="form-control mb-3" required>
+
+                <button type="submit"
+                        class="btn btn-warning rounded-pill px-5">
+                    Забронювати
+                </button>
+
+                <p id="bookingMessage" class="mt-3"></p>
+            </form>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="bg-light rounded-4 p-4 h-100">
+                <h3 class="cursive-font fs-2">Чекаємо на вас!</h3>
+                <p>
+                    Завітайте до нашого ресторану та
+                    насолоджуйтеся смачними стравами.
+                </p>
+                <p>
+                    <i class="bi bi-geo-alt-fill"></i>
+                    Вінниця, Україна
+                </p>
+                <p>
+                    <i class="bi bi-clock-fill"></i>
+                    Щодня з 10:00 до 22:00
+                    (демонстраційний графік)
+                </p>
+                <p class="text-muted">
+                    Це навчальний сайт. Бронювання
+                    працює лише в демонстраційному режимі.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Запитання -->
+<section id="faq-section" class="container py-5">
+    <h2 class="display-4 cursive-font fw-bold text-center mb-4">
+        Часті запитання
+    </h2>
+
+    <div class="accordion" id="faqAccordion">
+
+        <div class="accordion-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq1">
+                    Які страви є у вашому меню?
+                </button>
+            </h3>
+            <div id="faq1" class="accordion-collapse collapse show"
+                 data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Ми пропонуємо бургери, піцу,
+                    пасту та картоплю фрі.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq2">
+                    Чи можна забронювати столик?
+                </button>
+            </h3>
+            <div id="faq2" class="accordion-collapse collapse"
+                 data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    На навчальному сайті доступна
+                    демонстраційна форма бронювання.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq3">
+                    Чи є спеціальні пропозиції?
+                </button>
+            </h3>
+            <div id="faq3" class="accordion-collapse collapse"
+                 data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    На сайті представлені демонстраційні
+                    акції та спеціальні пропозиції.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Контакти -->
+<footer id="footer-section" class="bg-dark text-white py-5">
+    <div class="container">
+        <div class="row g-4 text-center">
+
+            <div class="col-md-4">
+                <h3 class="cursive-font">Контакти</h3>
+                <p>
+                    <i class="bi bi-geo-alt-fill"></i>
+                    Вінниця, Україна
+                </p>
+                <p>Навчальний вебпроєкт</p>
+            </div>
+
+            <div class="col-md-4">
+                <h3 class="cursive-font">Savor</h3>
+                <p>
+                    Смачна їжа, затишна атмосфера
+                    та чудовий настрій!
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <h3 class="cursive-font">Години роботи</h3>
+                <p>Демонстраційний графік</p>
+                <p>Щодня: 10:00–22:00</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="text-center mb-0">
+            © 2026 Savor. Усі права захищено.
+        </p>
+    </div>
+</footer>
+
+<!-- Кнопка вгору -->
+<button id="backToTopBtn"
+        class="btn btn-warning rounded-circle position-fixed bottom-0 end-0 m-4 d-none"
+        aria-label="Повернутися вгору">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<!-- Вхід -->
+<div class="modal fade" id="signInModal" tabindex="-1"
+     aria-labelledby="signInTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signInTitle">
+                    Вхід
+                </h5>
+                <button type="button" class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Закрити"></button>
+            </div>
+            <div class="modal-body">
+                <form class="demo-auth">
+                    <input type="email" class="form-control mb-3"
+                           placeholder="Електронна пошта" required>
+                    <input type="password" class="form-control mb-3"
+                           placeholder="Пароль" required>
+                    <button class="btn btn-warning w-100">
+                        Увійти
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Реєстрація -->
+<div class="modal fade" id="signUpModal" tabindex="-1"
+     aria-labelledby="signUpTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signUpTitle">
+                    Реєстрація
+                </h5>
+                <button type="button" class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Закрити"></button>
+            </div>
+            <div class="modal-body">
+                <form class="demo-auth">
+                    <input type="text" class="form-control mb-3"
+                           placeholder="Ваше ім'я" required>
+                    <input type="email" class="form-control mb-3"
+                           placeholder="Електронна пошта" required>
+                    <input type="password" class="form-control mb-3"
+                           placeholder="Пароль" required>
+                    <button class="btn btn-warning w-100">
+                        Зареєструватися
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
